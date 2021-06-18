@@ -1,0 +1,39 @@
+---
+title: "Untitled"
+author: "Zukiswa Mdingi"
+date: "June 18, 2021"
+output: html_document
+---
+
+```{r}
+
+library(leaflet)
+
+```
+
+```{r}
+
+new_icon <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = "blue"
+)
+
+content <- paste(sep = "<br/>",
+  "<b>Johannesburg</b>",
+  "Sandton",
+  "83 Rivonia Rd, Sandhurst"
+)
+
+sandton_map <- leaflet() %>%
+    addTiles() %>%
+    addAwesomeMarkers(lat = -26.107567, lng = 28.056702,
+        icon = new_icon,
+        popup = "Santon City") %>%
+    addPopups(lat = -26.107567, lng = 28.056702, content,
+        options = popupOptions(closeButton = FALSE)
+    )
+sandton_map
+
+```
